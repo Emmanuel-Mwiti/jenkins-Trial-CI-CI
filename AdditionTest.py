@@ -1,4 +1,5 @@
 # TestOperations.py
+import pytest
 from AddNumbers import add_numbers
 
 def test_addition():
@@ -14,7 +15,5 @@ def test_addition():
     result = add_numbers(3.5, 1.5)
     assert result == 5.0, "Test case 4 (addition) failed"
 
-
 if __name__ == "__main__":
-    test_addition()
-    print("All tests passed.")
+    pytest.main(["-v", "--junitxml=report.xml"])
