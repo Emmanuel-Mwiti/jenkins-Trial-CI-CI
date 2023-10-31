@@ -1,6 +1,5 @@
 # TestOperations.py
 from AddNumbers import add_numbers
-from SubtractNumbers import subtract_numbers
 
 def test_addition():
     result = add_numbers(5, 3)
