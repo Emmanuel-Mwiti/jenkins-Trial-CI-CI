@@ -1,19 +1,23 @@
-# TestOperations.py
-import pytest
+import unittest
 from AddNumbers import add_numbers
 
-def test_addition():
-    result = add_numbers(5, 3)
-    assert result == 8, "Test case 1 (addition) failed"
+class TestAddition(unittest.TestCase):
 
-    result = add_numbers(-2, -7)
-    assert result == -9, "Test case 2 (addition) failed"
+    def test_addition_positive_numbers(self):
+        result = add_numbers(5, 3)
+        self.assertEqual(result, 8, "Test case 1 (addition) failed")
 
-    result = add_numbers(10, -4)
-    assert result == 6, "Test case 3 (addition) failed"
+    def test_addition_negative_numbers(self):
+        result = add_numbers(-2, -7)
+        self.assertEqual(result, -9, "Test case 2 (addition) failed")
 
-    result = add_numbers(3.5, 1.5)
-    assert result == 5.0, "Test case 4 (addition) failed"
+    def test_addition_mixed_numbers(self):
+        result = add_numbers(10, -4)
+        self.assertEqual(result, 6, "Test case 3 (addition) failed")
 
-if __name__ == "__main__":
-    pytest.main(["-v", "--junitxml=report.xml"])
+    def test_addition_float_numbers(self):
+        result = add_numbers(3.5, 1.5)
+        self.assertEqual(result, 5.0, "Test case 4 (addition) failed")
+
+if __name__ == "__main":
+    unittest.main()
